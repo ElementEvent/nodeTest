@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/public/css/index.css">
+    <script src="/public/js/index.js"></script>
+</head>
+<body>
+    <div>
+        <a href="/post">发表</a>
+        <ol>
+           {{ each comments }}
+            <li> {{ $value.name }} </li>
+            <li> {{ $value.message }} </li>
+            <li> {{ $value.dataTime }} </li>
+            {{/each}}
+        </ol>
+    </div>
+</body>
+</html>

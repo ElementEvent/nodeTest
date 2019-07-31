@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./node_modules/art-template/lib/template-web.js"></script>
+    <script type="text/template" id="tp1">
+        hello {{ name }}
+        喜欢： {{ each arr }} {{ $value }} {{ /each }}
+    </script>
+    <script>
+        var ret = template('tp1', {
+            name: "template模板语法",
+            arr: ['唱', '跳' ,'rap', '篮球']
+        });
+        console.log(ret);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
