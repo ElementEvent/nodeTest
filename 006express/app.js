@@ -1,5 +1,6 @@
 // 1安装与引入
 var express = require('express');
+var fs = require('fs');
 
 // 2 创建你的服务器应用程序
 // 也就是002http中的http.createServer
