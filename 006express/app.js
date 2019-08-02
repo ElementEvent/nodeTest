@@ -2,7 +2,7 @@
 var express = require('express');
 var fs = require('fs');
 
-// 2 创建你的服务器应用程序
+// 2 创建你的服务器应用程序 11
 // 也就是002http中的http.createServer
 var app = express();
 app.get('/', function (req,res) {
