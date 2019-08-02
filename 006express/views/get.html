@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <a href="/">返回首页</a>
+        <form method="get" action="/pinglun">
+            <input type="text" name="name" placeholder="用户名" id="input_name">
+            <textarea placeholder="发表评论" name="message" id="message"></textarea>
+            <p>
+                <button type="submit" >get提交</button>
+            </p>
+        </form>
+
+        <form method="post" action="/post">
+            <input type="text" name="name" placeholder="用户名" >
+            <textarea placeholder="发表评论" name="message" ></textarea>
+            <p>
+                <button type="submit" >post提交</button>
+            </p>
+        </form>
+    </div>
+</body>
+</html>
