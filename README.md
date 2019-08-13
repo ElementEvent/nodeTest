@@ -1,10 +1,16 @@
 Node 中的 javaScript
 
+    当前进度 65/120
+
    --->  没有DOM BOM
    
    #npm安装指定版本
    npm install jquery@1.11.0
    
+   开启nodeJS中的服务热更新w
+        npm i -g nodemon 全局安装
+   执行方式
+        nodemon app.js
 1： 核心模块
     
     如：fs核心文件模块、http服务构建模块、path路径操作模块、os操作系统模块、url模块
@@ -144,4 +150,10 @@ Node 中的 javaScript
    app.use(bodyParser.urlencoded({ extended； false }))
    app.use( bodyParser.json() )
    
+   #使用 express
+   在express获取get和post请求数据
+   get: req.query获取表单数据
+   post: 安装 body-parser
+        1： 引入 var bodyParser = require('body-parser')
+        
    

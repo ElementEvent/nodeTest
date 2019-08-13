@@ -1,6 +1,7 @@
 // 1安装与引入
 var express = require('express');
-
+// 处理post提交数据插件
+var bodyParser = require('body-parser');
 // 2 创建你的服务器应用程序 11
 // 也就是002http中的http.createServer
 var app = express();
@@ -17,6 +18,19 @@ var app = express();
  *  app.set('views', '文件目录');
  */
 app.engine('html', require('express-art-template'));
+
+/**
+ *
+ *  bodyParser插件处理post提交
+ *  使用此插件会在req请求对象上多一个body属性
+ *  使用reqbody来或许表单Post请求数据
+ *
+ * */
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+
 
 let comments = [
     {
@@ -71,8 +85,10 @@ app.post('/post', function (req,res) {
      *  req.query 获取post传递过来的参数
      *
      * */
-    console.log(req.query);
-    res.send('post');
+    let newConmment = req.body;
+    newConmment.dataTime = '2017-11-05 10:22:22';
+    comments.push(newConmment);
+    res.redirect('/'); //返回到首页路由
 });
 
 app.get('/admin', function (req,res) {

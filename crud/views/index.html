@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/public/css/main.css">
+    <script src="/public/js/index.js"></script>
+</head>
+<body>
+   <div>
+       {{ each fruits }}
+       <p>
+           {{ $value }}
+       </p>
+       {{ /each }}
+   </div>
+
+   <br>
+   <br>
+   <br>
+   <br>
+   <a href="/students/new">发表新留言</a>
+   <br>
+    <div>
+        {{ each students }}
+        <p>
+            id:{{ $value.id }}
+        </p>
+        <p>
+            姓名:{{ $value.name }}
+        </p>
+        <p>
+            性别:{{ $value.gender }}
+        </p>
+        <p>
+            年龄:{{ $value.age }}
+        </p>
+        <p>
+            兴趣爱好:{{ $value.hobbies }}
+        </p>
+        {{ /each }}
+    </div>
+</body>
+</html>
