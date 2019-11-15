@@ -33,7 +33,19 @@ module.exports = function (app) {
     })
 }*/
 
-
+/*Student.updataById({
+    "id": 1,
+    "name": "修改后李四",
+    "gender": 1,
+    "age": 25,
+    "hobbies": "MXD"
+},function (err) {
+    if( err ) {
+        return console.log(err);
+    }else {
+        console.log('修改成功');
+    }
+});*/
 // 写法2 ： express提供的包装路由 引入express
 
 /**
@@ -76,6 +88,11 @@ router.get('/students',function (req, res) {
     })
 });
 
+// 根据ID获取学生
+router.get('/students/getStudentsById?id',function (req, res) {
+    console.log(req.query);
+});
+
 router.get('/students/new',function (req, res) {
     res.render('./new.html')
 });
@@ -84,6 +101,13 @@ router.post('/students/new',function (req, res) {
     // 获取表单插件
     console.log(req.body);
     // 将数据保存到db.json里面
+    Student.save(req.body, function (err) {
+        if( err ){
+            return res.status(500).send('添加表单错误');
+        }
+        // 重定向到首页
+        res.redirect('/students');
+    })
 });
 
 router.get('/students/edit',function (req, res) {
@@ -95,7 +119,14 @@ router.post('/students/edit',function (req, res) {
 });
 
 router.get('/students/delete',function (req, res) {
-    res.send('delete');
+    let studentId = req.query.id;
+    Student.delete(studentId, function (err) {
+        if( err ){
+            return res.status(500).send('删除表单错误');
+        }
+        // 重定向到首页
+        res.redirect('/students');
+    });
 });
 
  // 3：路由导出
