@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  {{ block 'head' }}{{ /block }}
+</head>
+<body>
+{{ include './header.html' }}
+{{ block 'content' }} <h1>默认类容</h1> {{ /block }}
+{{ include './footer.html' }}
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+{{ block 'script' }}{{ /block }}
+</body>
+</html>

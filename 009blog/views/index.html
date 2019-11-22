@@ -1,0 +1,21 @@
+{{ extend './layout.html' }}
+
+{{ block 'head' }}
+<style>
+  body{
+    background-color: red;
+  }
+</style>
+{{ /block }}
+
+{{ block 'content' }}
+  <div>
+    <h1>index.html</h1>
+  </div>
+{{ /block }}
+
+{{ block 'script' }}
+<script>
+	console.log('index');
+</script>
+{{ /block }}

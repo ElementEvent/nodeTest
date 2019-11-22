@@ -1,6 +1,6 @@
 Node 中的 javaScript
 
-    当前进度 95/120
+    当前进度 101/120
 
    --->  没有DOM BOM
    
@@ -177,3 +177,24 @@ Node 中的 javaScript
     *表记录 -》 （文档对象）
 
     MongoDB 不需要设置表结构
+    
+    ------------------------------------------------------------------------
+
+10.Path路径操作模块
+    [官方文档](http://nodejs.cn/api/path.html#path_path_basename_path_ext)
+    常用语法
+    path.basename 获取一个路径的文件名 默认包含扩展，第二个参数是去除扩展名
+    path.dirname 获取一个路径中的目录部分
+    path.extname 获取扩展名
+    path.parse 把路径转义成对象
+    path.join 路径拼接的时候使用
+    path.isAbsolute 判断是否为决定路径
+
+// 引入的文件不要使用下面的路径变量，模块路径不需要使用。
+__dirname 获取当前文件所属目录的绝对路径 
+__filename 获取当前文件的绝对路径
+
+express [文档](https://www.runoob.com/w3cnote/express-4-x-api.html)
+
+art-template [文档](https://aui.github.io/art-template/zh-cn/index.html)
+
