@@ -156,6 +156,9 @@ Node 中的 javaScript
    post: 安装 body-parser
         1： 引入 var bodyParser = require('body-parser')
         
+        
+   
+        
    
 
 
@@ -178,6 +181,15 @@ Node 中的 javaScript
 
     MongoDB 不需要设置表结构
     
+    基本命令：
+    mongod： 启动MongoDB数据库
+    操作数据库CRUD参考： 008 demo2.js 
+   
+    
+    相关插件：
+    mongoose 插件
+    详情参考与使用方式008文件夹
+    
     ------------------------------------------------------------------------
 
 10.Path路径操作模块
@@ -198,3 +210,29 @@ express [文档](https://www.runoob.com/w3cnote/express-4-x-api.html)
 
 art-template [文档](https://aui.github.io/art-template/zh-cn/index.html)
 
+    ------------------------------------------------------------------------
+
+009blog 
+
+路径|方法|get参数|post参数|是否需要登录|备注
+----|----|----|----|----|----|
+|/|get| |  |  | 渲染首页 |
+|/register|get| |  |  | 渲染注册 |
+|/register|post| | email、nickname、password |  | 处理注册请求 |
+|/login|get| |  |  | 渲染登录 |
+|/login|post| |  | email、password | 处理登录请求 |
+|/logout|get| |  |  | 处理退出请求 |
+
+public: 公共样式、css、js
+routes： 路由配置
+views： 页面目录
+app.js: 入口文件
+models: 数据模型
+
+
+###敏感信息处理：  
+express 框架中默认是不支持session和cookie
+在第三方中间件中使用包： express-session来解决
+npm install express-session
+
+浏览器插件 editthiscookie 查看cookie

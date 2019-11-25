@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>注册</title>
+</head>
+<body>
+<form id="register_form" class="form-control">
+  <input name="email" class="input-group" placeholder="请输入邮箱">
+  <br>
+  <input name="password" class="input-group" placeholder="请输入密码">
+  <br>
+  <input name="nickname" class="input-group" placeholder="昵称">
+  <br>
+  <button class="btn btn-block" type="submit">注册</button>
+  <a class="btn bg-info" href="/login">登录</a>
+</form>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+	$("#register_form").on('submit', function (e) {
+		e.preventDefault();
+		let formData = $(this).serialize();
+		$.ajax({
+			url: "/register",
+			type: "post",
+			data: formData,
+			dataType: "json",
+			success: function (data) {
+				console.log(data);
+				let code = data.err_code;
+				if (code === 0) {
+					alert('注册成功！');
+					window.location.href = '/';
+				} else if (code === 1) {
+					alert('邮箱或者昵称已存在！');
+				} else if (code === 500) {
+					alert('服务器忙，请稍后重试！');
+				}
+			}
+		})
+	});
+</script>
+</body>
+</html>
