@@ -1,8 +1,11 @@
 <div>
   <h1>
-    <span>当前登陆者：</span>
+    {{ if user }}
+    <span>当前登陆者：{{ user.nickname }}</span>
+    <a href="/logout">退出</a>
+    {{ else }}
     <a href="/login">登录</a>
     <a href="/register">注册</a>
-    <a href="">退出</a>
+    {{ /if }}
   </h1>
 </div>

@@ -228,6 +228,12 @@ routes： 路由配置
 views： 页面目录
 app.js: 入口文件
 models: 数据模型
+middlewares: 中间件
+
+接口返回值err_code 约定
+0：注册成功
+1：邮箱或者昵称已存在
+2：邮箱密码错误或者不存在
 
 
 ###敏感信息处理：  
@@ -235,4 +241,41 @@ express 框架中默认是不支持session和cookie
 在第三方中间件中使用包： express-session来解决
 npm install express-session
 
-浏览器插件 editthiscookie 查看cookie
+009的 session.js中有使用案例
+
+浏览器插件 editthiscookie 查看cookie 
+JSON-handle json解析
+
+    ------------------------------------------------------------------------
+    
+010中间件
+
+中间件有几种方法，不关心请求路径和方法，都会进入中间件
+
+###最基础方法
+@req 请求对象
+@res 响应对象
+可以在路由配置的时候加入next，配置错误处理调用中间件
+next 下一个中间件, 一直有执行了next才会往下一个中间件执行
+next(err) 如果next带有参数那么会直接往下查找到带有四个参数的中间件
+（err, req, res, next）这个中间件
+
+app.use(function(req, res, next){
+    console.log(1);
+    next();
+})
+
+app.use(function(req, res, next){
+    console.log(2);
+})
+
+// 有条件的中间件
+只有请求开始为 /a的才能进入该路由
+app.use('/a', function(req, res, next){
+   console.log(2);
+})
+
+// 请求类型必须为get， 并且为 '/a'开头
+app.get('/a',function(req, res, next){
+  console.log(2);
+})
